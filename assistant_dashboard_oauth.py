@@ -1,17 +1,13 @@
-
 import streamlit as st
 import requests
 import json
 import os
-from dotenv import load_dotenv
 from requests_oauthlib import OAuth2Session
 
-# Load environment variables
-load_dotenv()
-
-TENANT_ID = os.getenv("TENANT_ID")
-CLIENT_ID = os.getenv("CLIENT_ID")
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+# Remove dotenv and use Streamlit secrets
+TENANT_ID = st.secrets["TENANT_ID"]
+CLIENT_ID = st.secrets["CLIENT_ID"]
+CLIENT_SECRET = st.secrets["CLIENT_SECRET"]
 REDIRECT_URI = "http://localhost:8501"
 
 # OAuth2 Authorization Code Flow
